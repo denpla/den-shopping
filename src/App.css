@@ -30,8 +30,9 @@ nav {
 }
 
 h2 {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   color: white;
+  font-weight: lighter;
 }
 
 nav li {
@@ -41,7 +42,7 @@ nav li {
   padding-left: 1rem;
 }
 
-li {
+li a {
   font-size: 1.8rem;
   padding: 0.5rem;
   color: white;

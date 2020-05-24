@@ -5,8 +5,11 @@ import NimbleOb from "../assets/hou-40-nimble-obstructionist.jpg";
 import JadelightRanger from "../assets/rix-136-jadelight-ranger.jpg";
 import ExperimentalFrenzy from "../assets/grn-99-experimental-frenzy.jpg";
 import { Card, Icon, Image } from "semantic-ui-react";
+import { connect } from "react-redux";
+import { addBasket } from "../actions/addAction";
 
-function Main() {
+const Main = (props) => {
+  console.log(props);
   return (
     <div className="mainCard">
       <Card.Group>
@@ -19,7 +22,7 @@ function Main() {
             </Card.Description>
           </Card.Content>
           <Card.Content className="mainCart" textAlign="center" extra>
-            <a href>
+            <a onClick={props.addBasket} href="#">
               <Icon name="cart" />
               Add to Cart
             </a>
@@ -38,7 +41,7 @@ function Main() {
             </Card.Description>
           </Card.Content>
           <Card.Content textAlign="center" extra>
-            <a href>
+            <a onClick={props.addBasket} href="#">
               <Icon name="cart" />
               Add to Cart
             </a>
@@ -55,7 +58,7 @@ function Main() {
             </Card.Description>
           </Card.Content>
           <Card.Content textAlign="center" extra>
-            <a href>
+            <a onClick={props.addBasket} href="#">
               <Icon name="cart" />
               Add to Cart
             </a>
@@ -71,7 +74,7 @@ function Main() {
             </Card.Description>
           </Card.Content>
           <Card.Content textAlign="center" extra>
-            <a href>
+            <a onClick={props.addBasket} href="#">
               <Icon name="cart" />
               Add to Cart
             </a>
@@ -89,7 +92,7 @@ function Main() {
             </Card.Description>
           </Card.Content>
           <Card.Content textAlign="center" extra>
-            <a href>
+            <a onClick={props.addBasket} href="#">
               <Icon name="cart" />
               Add to Cart
             </a>
@@ -98,5 +101,5 @@ function Main() {
       </Card.Group>
     </div>
   );
-}
-export default Main;
+};
+export default connect(null, { addBasket })(Main);

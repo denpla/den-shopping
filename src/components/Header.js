@@ -1,22 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "semantic-ui-react";
+import { connect } from "react-redux";
+import { getNumbers } from "../actions/getAction";
 
-function Header() {
+const mapStateToProps = (state) => ({
+  basketProps: state.basketState,
+});
+
+function Header(props) {
+  useEffect(() => {
+    getNumbers();
+  }, []);
   return (
     <header>
       <nav>
         <h2>Welcome to My Magic:The Gathering Shop</h2>
         <ul>
-          <li>Home</li>
-          <li>About{/* <a href="#">About</a> */}</li>
-          <li>Help{/* <a href="#">Help</a> */}</li>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Help</a>
+          </li>
           <li>
             <Button color="white" size="massive" circular icon="cart" />
-            {/* <a href="#">Cart</a> */}
+            <a href="#">{props.basketProps.basketNumbers}</a>
           </li>
         </ul>
       </nav>
     </header>
   );
 }
-export default Header;
+
+export default connect(mapStateToProps, { getNumbers })(Header);
