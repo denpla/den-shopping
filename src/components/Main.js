@@ -9,7 +9,6 @@ import { connect } from "react-redux";
 import { addBasket } from "../actions/addAction";
 
 const Main = (props) => {
-  console.log(props);
   return (
     <div className="mainCard">
       <Card.Group>
@@ -22,7 +21,7 @@ const Main = (props) => {
             </Card.Description>
           </Card.Content>
           <Card.Content className="mainCart" textAlign="center" extra>
-            <a onClick={props.addBasket} href="#">
+            <a onClick={() => props.addBasket("ArcboundRavager")} href="#">
               <Icon name="cart" />
               Add to Cart
             </a>
@@ -41,7 +40,7 @@ const Main = (props) => {
             </Card.Description>
           </Card.Content>
           <Card.Content textAlign="center" extra>
-            <a onClick={props.addBasket} href="#">
+            <a onClick={() => props.addBasket("HuatliWP")} href="#">
               <Icon name="cart" />
               Add to Cart
             </a>
@@ -51,14 +50,16 @@ const Main = (props) => {
         <Card centered>
           <Image src={NimbleOb} wrapped ui={false} />
           <Card.Content>
-            <Card.Header textAlign="center">Arcbound Ravager foil</Card.Header>
+            <Card.Header textAlign="center">
+              Nimble Obstructionist foil
+            </Card.Header>
             <Card.Description className="mainPrice" textAlign="center">
               {" "}
               4.07 EUR
             </Card.Description>
           </Card.Content>
           <Card.Content textAlign="center" extra>
-            <a onClick={props.addBasket} href="#">
+            <a onClick={() => props.addBasket("NimbleOb")} href="#">
               <Icon name="cart" />
               Add to Cart
             </a>
@@ -74,7 +75,7 @@ const Main = (props) => {
             </Card.Description>
           </Card.Content>
           <Card.Content textAlign="center" extra>
-            <a onClick={props.addBasket} href="#">
+            <a onClick={() => props.addBasket("JadelightRanger")} href="#">
               <Icon name="cart" />
               Add to Cart
             </a>
@@ -92,7 +93,7 @@ const Main = (props) => {
             </Card.Description>
           </Card.Content>
           <Card.Content textAlign="center" extra>
-            <a onClick={props.addBasket} href="#">
+            <a onClick={() => props.addBasket("ExperimentalFrenzy")} href="#">
               <Icon name="cart" />
               Add to Cart
             </a>
