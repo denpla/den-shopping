@@ -29,7 +29,9 @@ function Header(props) {
           <li className="mainCart">
             <Link to="/cart">
               <Button color="white" size="massive" circular icon="cart" />
-              <span>{props.basketProps.basketNumbers}</span>
+              <Button color="red" size="massive" circular icon="cart">
+                {props.basketProps.basketNumbers}
+              </Button>
             </Link>
           </li>
         </ul>

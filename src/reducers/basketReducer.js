@@ -6,30 +6,35 @@ const initialState = {
   products: {
     ArcboundRavager: {
       name: "Arcbound Ravager foil",
+      tagName: "Arcbound",
       price: 5.6,
       numbers: 0,
       inCart: false,
     },
     HuatliWP: {
       name: "Huatli, Warrior Poet foil",
+      tagName: "Huatli",
       price: 3.95,
       numbers: 0,
       inCart: false,
     },
     NimbleOb: {
       name: "Nimble Obstructionist foil",
+      tagName: "Nimble",
       price: 4.07,
       numbers: 0,
       inCart: false,
     },
     JadelightRanger: {
       name: "Jadelight Ranger foil",
+      tagName: "Ranger",
       price: 3.6,
       numbers: 0,
       inCart: false,
     },
     ExperimentalFrenzy: {
       name: "Experimental Frenzy foil",
+      tagName: "Frenzy",
       price: 3.0,
       numbers: 0,
       inCart: false,
