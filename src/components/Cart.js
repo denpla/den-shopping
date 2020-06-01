@@ -6,6 +6,7 @@ import NimbleOb from "../assets/hou-40-nimble-obstructionist.jpg";
 import JadelightRanger from "../assets/rix-136-jadelight-ranger.jpg";
 import ExperimentalFrenzy from "../assets/grn-99-experimental-frenzy.jpg";
 import { Button, Image } from "semantic-ui-react";
+import { productQuantity } from "../actions/productQuantity";
 
 const mapStateToProps = (state) => ({
   basketProps: state.basketState,
@@ -25,7 +26,7 @@ const productImages = (product) => {
   }
 };
 
-function Cart({ basketProps }) {
+function Cart({ basketProps, productQuantity }) {
   console.log(basketProps);
   let productsInCart = [];
   Object.keys(basketProps.products).forEach(function (item) {
@@ -39,35 +40,37 @@ function Cart({ basketProps }) {
 
   productsInCart = productsInCart.map((product, index) => {
     return (
-      <Fragment>
+      <Fragment key={index}>
         <div className="product">
-          <span>
-            <Button
-              color="red"
-              size="big"
-              circular
-              icon="times circle outline"
-            ></Button>
-          </span>
+          <Button
+            color="red"
+            size="big"
+            circular
+            icon="times circle outline"
+          ></Button>
           <Image className="imageCart" src={productImages(product)}></Image>
           <span className="sm-hide">{product.name}</span>
-          <div className="price sm-hide">{product.price} EUR</div>
-          <div className="quantity">
+          <span className="pricesm-hide">{product.price} EUR</span>
+          <span className="sm-quantity">
             <Button
-              className="decrease"
+              onClick={() => productQuantity("decrease", product.tagName)}
+              className="button-decrease"
               circular
               color="red"
+              size="small"
               icon="arrow alternate circle left outline"
             ></Button>
-            <span>{product.numbers}</span>
+            <span className="sm-numbers">{product.numbers} </span>
             <Button
-              className="increase"
+              onClick={() => productQuantity("increase", product.tagName)}
+              className="button-increase"
               circular
+              size="small"
               color="red"
               icon="arrow alternate circle right outline"
             ></Button>
-          </div>
-          <div className="total">{product.numbers * product.price} EUR</div>
+          </span>
+          <div className="sm-total">{product.numbers * product.price} EUR</div>
         </div>
       </Fragment>
     );
@@ -76,17 +79,21 @@ function Cart({ basketProps }) {
     <div className="container-products">
       <div className="product-header">
         <h5 className="product-title">PRODUCT</h5>
-        <h5 className="price sm-hide">PRICE</h5>
+        <h5 className="price">PRICE</h5>
         <h5 className="quantity">QUANTITY</h5>
         <h5 className="total">TOTAL</h5>
       </div>
       <div className="products">{productsInCart}</div>
-      <div className="basketTotalContainer">
-        <h4 className="basketTotalTitle">BASKET TOTAL</h4>
-        <h4 className="basketTotal">{basketProps.cartCost} EUR</h4>
+      <div className="basket-total">
+        <h4 className="basket-title">
+          BASKET TOTAL:
+          <span className="basket-titlePrice">
+            {Math.round(basketProps.cartCost)},00 EUR
+          </span>
+        </h4>
       </div>
     </div>
   );
 }
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps, { productQuantity })(Cart);
