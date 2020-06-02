@@ -59,20 +59,6 @@ li a {
   font-weight: bold;
 }
 
-.mainFooter {
-  position: relative;
-  background-color: grey;
-  color: white;
-  display: flex;
-  justify-content: flex-end;
-  height: 2rem;
-  margin-top: 21.6rem;
-}
-
-.parFooter {
-  margin-right: 2rem;
-}
-
 .container-products {
   display: flex;
   justify-content: center;
@@ -85,35 +71,27 @@ li a {
   width: 100%;
   max-width: 75rem;
   display: flex;
-  justify-content: flex-end;
+  align-items: stretch;
   border-bottom: 0.4rem solid lightgrey;
 }
 
 .product-title {
-  width: 64%;
-  display: flex;
-  align-items: center;
+  width: 70%;
 }
 
 .price {
-  width: 8%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 10%;
+  text-align: center;
 }
 
 .quantity {
   width: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
 }
 
 .total {
-  width: 8%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 10%;
+  text-align: center;
 }
 
 .product {
@@ -133,6 +111,7 @@ li a {
   display: flex;
   align-items: center;
 }
+
 .sm-numbers {
   padding: 0.5rem;
 }
@@ -148,17 +127,18 @@ li a {
 }
 
 .basket-total {
+  width: 100%;
+  max-width: 75rem;
   display: flex;
-  align-items: center;
   justify-content: flex-end;
-  width: 75%;
   margin-top: 1rem;
-  padding-bottom: 10rem;
 }
 
 .basket-title {
-  width: 30%;
+  display: flex;
+  justify-content: flex-end;
 }
+
 .basket-titlePrice {
   margin-left: 1rem;
 }

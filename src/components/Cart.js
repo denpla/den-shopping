@@ -78,19 +78,32 @@ function Cart({ basketProps, productQuantity }) {
   return (
     <div className="container-products">
       <div className="product-header">
-        <h5 className="product-title">PRODUCT</h5>
-        <h5 className="price">PRICE</h5>
-        <h5 className="quantity">QUANTITY</h5>
-        <h5 className="total">TOTAL</h5>
+        <span className="product-title">
+          <h5>PROODUCT</h5>
+        </span>
+        <span className="price">
+          {" "}
+          <h5>PRICE</h5>
+        </span>
+        <span className="quantity">
+          {" "}
+          <h5>QUANTITY</h5>
+        </span>
+        <span className="total">
+          {" "}
+          <h5>TOTAL</h5>
+        </span>
       </div>
       <div className="products">{productsInCart}</div>
       <div className="basket-total">
-        <h4 className="basket-title">
-          BASKET TOTAL:
-          <span className="basket-titlePrice">
-            {Math.round(basketProps.cartCost)},00 EUR
-          </span>
-        </h4>
+        <span>
+          <h4 className="basket-title">
+            BASKET TOTAL:
+            <span className="basket-titlePrice">
+              {Math.round(basketProps.cartCost)},00 EUR
+            </span>
+          </h4>
+        </span>
       </div>
     </div>
   );

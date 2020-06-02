@@ -54,7 +54,8 @@ export default (state = initialState, action) => {
       productSelected = { ...state.products[action.payload] };
       productSelected.numbers += 1;
       productSelected.inCart = true;
-      console.log(productSelected);
+      console.log("productSelected.numbers" + productSelected.numbers);
+      console.log("productSelected" + productSelected);
       return {
         ...state,
         basketNumbers: state.basketNumbers + 1,
@@ -72,7 +73,9 @@ export default (state = initialState, action) => {
     case INCREASE_QUANTITY:
       productSelected = { ...state.products[action.payload] };
       productSelected.numbers += 1;
-      console.log(productSelected);
+      console.log("productSelected.numbers" + productSelected.numbers);
+      console.log("productSelected" + productSelected);
+
       return {
         ...state,
         basketNumbers: state.basketNumbers + 1,
