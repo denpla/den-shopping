@@ -4,7 +4,7 @@ import HuatliWP from "../assets/xln-224-huatli-warrior-poet.jpg";
 import NimbleOb from "../assets/hou-40-nimble-obstructionist.jpg";
 import JadelightRanger from "../assets/rix-136-jadelight-ranger.jpg";
 import ExperimentalFrenzy from "../assets/grn-99-experimental-frenzy.jpg";
-import { Card, Icon, Image } from "semantic-ui-react";
+import { Card, Icon, Image, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { addBasket } from "../actions/addAction";
 
@@ -17,14 +17,18 @@ const Main = (props) => {
           <Card.Content>
             <Card.Header textAlign="center">Arcbound Ravager foil</Card.Header>
             <Card.Description className="mainPrice" textAlign="center">
-              5.60 EUR
+              5.62 EUR
             </Card.Description>
           </Card.Content>
           <Card.Content className="mainCart" textAlign="center" extra>
-            <a onClick={() => props.addBasket("ArcboundRavager")} href="#">
+            <Button
+              color="blue"
+              size="big"
+              onClick={() => props.addBasket("ArcboundRavager")}
+            >
               <Icon name="cart" />
               Add to Cart
-            </a>
+            </Button>
           </Card.Content>
         </Card>
 
@@ -40,10 +44,14 @@ const Main = (props) => {
             </Card.Description>
           </Card.Content>
           <Card.Content textAlign="center" extra>
-            <a onClick={() => props.addBasket("HuatliWP")} href="#">
+            <Button
+              color="blue"
+              size="big"
+              onClick={() => props.addBasket("HuatliWP")}
+            >
               <Icon name="cart" />
               Add to Cart
-            </a>
+            </Button>
           </Card.Content>
         </Card>
 
@@ -59,10 +67,14 @@ const Main = (props) => {
             </Card.Description>
           </Card.Content>
           <Card.Content textAlign="center" extra>
-            <a onClick={() => props.addBasket("NimbleOb")} href="#">
+            <Button
+              color="blue"
+              size="big"
+              onClick={() => props.addBasket("NimbleOb")}
+            >
               <Icon name="cart" />
               Add to Cart
-            </a>
+            </Button>
           </Card.Content>
         </Card>
         <Card centered>
@@ -71,14 +83,18 @@ const Main = (props) => {
             <Card.Header textAlign="center">Jadelight Ranger foil</Card.Header>
             <Card.Description className="mainPrice" textAlign="center">
               {" "}
-              3.60 EUR
+              3.61 EUR
             </Card.Description>
           </Card.Content>
           <Card.Content textAlign="center" extra>
-            <a onClick={() => props.addBasket("JadelightRanger")} href="#">
+            <Button
+              color="blue"
+              size="big"
+              onClick={() => props.addBasket("JadelightRanger")}
+            >
               <Icon name="cart" />
               Add to Cart
-            </a>
+            </Button>
           </Card.Content>
         </Card>
         <Card centered>
@@ -89,14 +105,18 @@ const Main = (props) => {
             </Card.Header>
             <Card.Description className="mainPrice" textAlign="center">
               {" "}
-              3.00 EUR
+              3.01 EUR
             </Card.Description>
           </Card.Content>
           <Card.Content textAlign="center" extra>
-            <a onClick={() => props.addBasket("ExperimentalFrenzy")} href="#">
+            <Button
+              color="blue"
+              size="big"
+              onClick={() => props.addBasket("ExperimentalFrenzy")}
+            >
               <Icon name="cart" />
               Add to Cart
-            </a>
+            </Button>
           </Card.Content>
         </Card>
       </Card.Group>

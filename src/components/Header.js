@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { getNumbers } from "../actions/getAction";
 import { Link } from "react-router-dom";
@@ -16,6 +15,7 @@ function Header(props) {
     <header>
       <nav>
         <h2>Magic: The Gathering card shop</h2>
+
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -28,10 +28,9 @@ function Header(props) {
           </li>
           <li className="mainCart">
             <Link to="/cart">
-              <Button color="white" size="massive" circular icon="cart" />
-              <Button color="red" size="massive" circular icon="cart">
-                {props.basketProps.basketNumbers}
-              </Button>
+              <button class="ui white circular massive labeled icon button">
+                <i class="cart icon"></i> {props.basketProps.basketNumbers}
+              </button>
             </Link>
           </li>
         </ul>

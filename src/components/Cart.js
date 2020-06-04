@@ -13,21 +13,22 @@ const mapStateToProps = (state) => ({
 });
 
 const productImages = (product) => {
-  if (product.tagName === "Arcbound") {
+  if (product.tagName === "ArcboundRavager") {
     return ArcboundRavager;
-  } else if (product.tagName === "Huatli") {
+  } else if (product.tagName === "HuatliWP") {
     return HuatliWP;
-  } else if (product.tagName === "Nimble") {
+  } else if (product.tagName === "NimbleOb") {
     return NimbleOb;
-  } else if (product.tagName === "Ranger") {
+  } else if (product.tagName === "JadelightRanger") {
     return JadelightRanger;
-  } else if (product.tagName === "Frenzy") {
+  } else if (product.tagName === "ExperimentalFrenzy") {
     return ExperimentalFrenzy;
   }
 };
 
 function Cart({ basketProps, productQuantity }) {
-  console.log(basketProps);
+  console.log("BasketProps:" + basketProps);
+  console.log("PROPS" + productQuantity);
   let productsInCart = [];
   Object.keys(basketProps.products).forEach(function (item) {
     console.log(item);
@@ -43,7 +44,7 @@ function Cart({ basketProps, productQuantity }) {
       <Fragment key={index}>
         <div className="product">
           <Button
-            color="red"
+            color="blue"
             size="big"
             circular
             icon="times circle outline"
@@ -54,19 +55,19 @@ function Cart({ basketProps, productQuantity }) {
           <span className="sm-quantity">
             <Button
               onClick={() => productQuantity("decrease", product.tagName)}
-              className="button-decrease"
+              className="decrease"
               circular
-              color="red"
+              color="blue"
               size="small"
               icon="arrow alternate circle left outline"
             ></Button>
             <span className="sm-numbers">{product.numbers} </span>
             <Button
               onClick={() => productQuantity("increase", product.tagName)}
-              className="button-increase"
+              className="increase"
               circular
               size="small"
-              color="red"
+              color="blue"
               icon="arrow alternate circle right outline"
             ></Button>
           </span>
@@ -100,7 +101,7 @@ function Cart({ basketProps, productQuantity }) {
           <h4 className="basket-title">
             BASKET TOTAL:
             <span className="basket-titlePrice">
-              {Math.round(basketProps.cartCost)},00 EUR
+              {basketProps.cartCost},00 EUR
             </span>
           </h4>
         </span>

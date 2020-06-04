@@ -11,35 +11,35 @@ const initialState = {
   products: {
     ArcboundRavager: {
       name: "Arcbound Ravager foil",
-      tagName: "Arcbound",
+      tagName: "ArcboundRavager",
       price: 5.62,
       numbers: 0,
       inCart: false,
     },
     HuatliWP: {
       name: "Huatli, Warrior Poet foil",
-      tagName: "Huatli",
+      tagName: "HuatliWP",
       price: 3.95,
       numbers: 0,
       inCart: false,
     },
     NimbleOb: {
       name: "Nimble Obstructionist foil",
-      tagName: "Nimble",
+      tagName: "NimbleOb",
       price: 4.07,
       numbers: 0,
       inCart: false,
     },
     JadelightRanger: {
       name: "Jadelight Ranger foil",
-      tagName: "Ranger",
+      tagName: "JadelightRanger",
       price: 3.61,
       numbers: 0,
       inCart: false,
     },
     ExperimentalFrenzy: {
       name: "Experimental Frenzy foil",
-      tagName: "Frenzy",
+      tagName: "ExperimentalFrenzy",
       price: 3.01,
       numbers: 0,
       inCart: false,
@@ -70,6 +70,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
       };
+
     case INCREASE_QUANTITY:
       productSelected = { ...state.products[action.payload] };
       productSelected.numbers += 1;
