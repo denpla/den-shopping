@@ -5,7 +5,7 @@ import HuatliWP from "../assets/xln-224-huatli-warrior-poet.jpg";
 import NimbleOb from "../assets/hou-40-nimble-obstructionist.jpg";
 import JadelightRanger from "../assets/rix-136-jadelight-ranger.jpg";
 import ExperimentalFrenzy from "../assets/grn-99-experimental-frenzy.jpg";
-import { Button, Image } from "semantic-ui-react";
+import { Image } from "semantic-ui-react";
 import { productQuantity } from "../actions/productQuantity";
 
 const mapStateToProps = (state) => ({
@@ -43,33 +43,26 @@ function Cart({ basketProps, productQuantity }) {
     return (
       <Fragment key={index}>
         <div className="product">
-          <Button
-            color="blue"
-            size="big"
-            circular
-            icon="times circle outline"
-          ></Button>
+          <button className="small ui icon button blue circular">
+            <i className="times circle outline icon large"></i>
+          </button>
           <Image className="imageCart" src={productImages(product)}></Image>
           <span className="sm-hide">{product.name}</span>
           <span className="pricesm-hide">{product.price} EUR</span>
           <span className="sm-quantity">
-            <Button
+            <button
               onClick={() => productQuantity("decrease", product.tagName)}
-              className="decrease"
-              circular
-              color="blue"
-              size="small"
-              icon="arrow alternate circle left outline"
-            ></Button>
+              className="decrease small ui icon button blue circular"
+            >
+              <i className="arrow alternate circle left outline icon large"></i>
+            </button>
             <span className="sm-numbers">{product.numbers} </span>
-            <Button
+            <button
               onClick={() => productQuantity("increase", product.tagName)}
-              className="increase"
-              circular
-              size="small"
-              color="blue"
-              icon="arrow alternate circle right outline"
-            ></Button>
+              className="increase small ui icon button blue circular"
+            >
+              <i className="arrow alternate circle right outline icon large"></i>
+            </button>
           </span>
           <div className="sm-total">{product.numbers * product.price} EUR</div>
         </div>

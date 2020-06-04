@@ -74,9 +74,6 @@ export default (state = initialState, action) => {
     case INCREASE_QUANTITY:
       productSelected = { ...state.products[action.payload] };
       productSelected.numbers += 1;
-      console.log("productSelected.numbers" + productSelected.numbers);
-      console.log("productSelected" + productSelected);
-
       return {
         ...state,
         basketNumbers: state.basketNumbers + 1,
@@ -87,17 +84,24 @@ export default (state = initialState, action) => {
         },
       };
     case DECREASE_QUANTITY:
-      //   productSelected = { ...state.products[action.payload] };
-      //   productSelected.numbers -= 1;
-
+      productSelected = { ...state.products[action.payload] };
+      let decreasecartCost = 0;
+      if (productSelected.numbers === 0) {
+        productSelected.numbers = 0;
+        decreasecartCost = state.cartCost;
+      } else {
+        productSelected.numbers -= 1;
+        decreasecartCost =
+          state.cartCost - state.products[action.payload].price;
+      }
       return {
         ...state,
-        //    basketNumbers: state.basketNumbers - 1,
-        //    cartCost: state.cartCost - state.products[action.payload].price,
-        //     products: {
-        //       ...state.products,
-        //       [action.payload]: productSelected,
-        //     },
+        basketNumbers: state.basketNumbers - 1,
+        cartCost: decreasecartCost,
+        products: {
+          ...state.products,
+          [action.payload]: productSelected,
+        },
       };
     default:
       return state;

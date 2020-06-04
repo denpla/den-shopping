@@ -28,8 +28,8 @@ function Header(props) {
           </li>
           <li className="mainCart">
             <Link to="/cart">
-              <button class="ui white circular massive labeled icon button">
-                <i class="cart icon"></i> {props.basketProps.basketNumbers}
+              <button className="ui white circular massive labeled icon button">
+                <i className="cart icon"></i> {props.basketProps.basketNumbers}
               </button>
             </Link>
           </li>
