@@ -7,6 +7,7 @@ import JadelightRanger from "../assets/rix-136-jadelight-ranger.jpg";
 import ExperimentalFrenzy from "../assets/grn-99-experimental-frenzy.jpg";
 import { Image } from "semantic-ui-react";
 import { productQuantity } from "../actions/productQuantity";
+import { removeProduct } from "../actions/removeProduct";
 
 const mapStateToProps = (state) => ({
   basketProps: state.basketState,
@@ -26,7 +27,7 @@ const productImages = (product) => {
   }
 };
 
-function Cart({ basketProps, productQuantity }) {
+function Cart({ basketProps, productQuantity, removeProduct }) {
   console.log("BasketProps:" + basketProps);
   console.log("PROPS" + productQuantity);
   let productsInCart = [];
@@ -43,8 +44,11 @@ function Cart({ basketProps, productQuantity }) {
     return (
       <Fragment key={index}>
         <div className="product">
-          <button className="small ui icon button blue circular">
-            <i className="times circle outline icon large"></i>
+          <button
+            onClick={() => removeProduct(product.tagName)}
+            className="small ui icon button blue circular"
+          >
+            <i className="close icon large"></i>
           </button>
           <Image className="imageCart" src={productImages(product)}></Image>
           <span className="sm-hide">{product.name}</span>
@@ -54,14 +58,14 @@ function Cart({ basketProps, productQuantity }) {
               onClick={() => productQuantity("decrease", product.tagName)}
               className="decrease small ui icon button blue circular"
             >
-              <i className="arrow alternate circle left outline icon large"></i>
+              <i className="angle left icon large"></i>
             </button>
             <span className="sm-numbers">{product.numbers} </span>
             <button
               onClick={() => productQuantity("increase", product.tagName)}
               className="increase small ui icon button blue circular"
             >
-              <i className="arrow alternate circle right outline icon large"></i>
+              <i className="angle right icon large"></i>
             </button>
           </span>
           <div className="sm-total">{product.numbers * product.price} EUR</div>
@@ -103,4 +107,6 @@ function Cart({ basketProps, productQuantity }) {
   );
 }
 
-export default connect(mapStateToProps, { productQuantity })(Cart);
+export default connect(mapStateToProps, { productQuantity, removeProduct })(
+  Cart
+);
