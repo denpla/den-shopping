@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getNumbers } from "../actions/getAction";
 import { Link } from "react-router-dom";
+// import { Modal } from "semantic-ui-react";
 
 const mapStateToProps = (state) => ({
   basketProps: state.basketState,

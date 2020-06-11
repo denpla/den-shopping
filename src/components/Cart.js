@@ -43,14 +43,18 @@ function Cart({ basketProps, productQuantity, removeProduct }) {
   productsInCart = productsInCart.map((product, index) => {
     return (
       <Fragment key={index}>
-        <div className="product">
-          <button
-            onClick={() => removeProduct(product.tagName)}
-            className="small ui icon button blue circular"
-          >
-            <i className="close icon large"></i>
-          </button>
-          <Image className="imageCart" src={productImages(product)}></Image>
+        <span className="product">
+          <span className="productElement">
+            <button
+              onClick={() => removeProduct(product.tagName)}
+              className="small ui icon button blue circular"
+            >
+              <i className="close icon large"></i>
+            </button>
+          </span>
+          <span className="productElement">
+            <Image className="imageCart" src={productImages(product)}></Image>
+          </span>
           <span className="sm-hide">{product.name}</span>
           <span className="pricesm-hide">{product.price} EUR</span>
           <span className="sm-quantity">
@@ -68,8 +72,10 @@ function Cart({ basketProps, productQuantity, removeProduct }) {
               <i className="angle right icon large"></i>
             </button>
           </span>
-          <div className="sm-total">{product.numbers * product.price} EUR</div>
-        </div>
+          <span className="sm-total">
+            {(product.numbers * product.price).toFixed(2)} EUR
+          </span>
+        </span>
       </Fragment>
     );
   });
@@ -98,7 +104,7 @@ function Cart({ basketProps, productQuantity, removeProduct }) {
           <h4 className="basket-title">
             BASKET TOTAL:
             <span className="basket-titlePrice">
-              {basketProps.cartCost},00 EUR
+              {Math.abs(basketProps.cartCost.toFixed(2))},00 EUR
             </span>
           </h4>
         </span>
